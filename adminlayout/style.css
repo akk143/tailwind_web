@@ -1,0 +1,171 @@
+/* start dark & light mode */
+
+
+
+/* Dark Mode Styles */
+body.dark, body.dark #leftsidebar, body.dark footer{
+    background-color: #0f0e0ef8;
+}
+
+body.dark .fa-sun{
+    color: rgba(228, 85, 49, 0.891);
+}
+
+body.dark h1.text-gray-800{
+    color: #ddd;
+}
+
+body.dark .contentareas .bg-white{
+    background-color: rgba(12, 12, 12, 0.994);
+    box-shadow: 0px 0px 0.5px rgba(255, 255, 255, 0.992);
+}
+body.dark .contentareas h3, body.dark .contentareas p,body.dark .contentareas h2, body.dark .contentareas ul li{
+    color: #f9f9f9;
+}
+
+body.dark .adminchat div{
+    background-color: rgba(16, 16, 17, 0.952);
+    border-color: #2e2f31;
+}
+
+body.dark .adminchat .bg-gray-200, body.dark .adminchat .bg-indigo-100{
+    background-color: rgb(26, 26, 28);
+}
+
+body.dark #sendmessage{
+    background-color: #000;
+}
+
+body.dark .adminchat .text-gray-700,
+body.dark .adminchat .text-gray-800,
+body.dark .adminchat .text-gray-500 {
+    color: white !important; /* Ensure text color is white */
+}
+
+/* end dark & light mode */
+
+/* start leftsidebar */
+#leftsidebar{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    transition: width 0.3s;
+}
+
+.sidebar-collapsed #leftsidebar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 1rem;
+
+    overflow: hidden;
+}
+
+.profile-container{
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 0;
+    margin-bottom: 3px;
+}
+
+.profile-container img{
+    transition: transform 0.3s ease, margin-top 0.3s ease;
+}
+
+.sidebar-collapsed .profile-container img{
+    transform: translateX(70%); 
+    margin-top: 20px;  
+}
+
+.sidebar-title{
+    transition: visibility 0.3s;
+}
+
+.sidebar-collapsed .sidebar-title{
+    visibility: hidden;
+}
+
+.nav-text{
+    display: inline;
+}
+
+.sidebar-collapsed .nav-text{
+    display: none;
+}
+
+.sidebar-collapsed .nav-items a{
+    justify-content: center;
+}
+
+.icon-container{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+/* Mobile: sidebar to be collapsed (max-width: 639px) */
+@media (max-width: 639px) {
+    body{
+        overflow-x: hidden;
+    }
+
+    .sidebar-collapsed #leftsidebar{
+        width: 4rem;
+    }
+
+    .sidebar-collapsed .profile-container img{
+        transform: translateX(65%);
+        margin-top: 20px;
+    }
+
+    .sidebar-collapsed .sidebar-title{
+        visibility: hidden;
+    }
+
+    .sidebar-collapsed .nav-text{
+        display: none;
+    }
+
+    #closebtn, #expandbtn{
+        visibility: hidden;
+    }
+}
+
+/* Larger Screens: allow toggling between collapsed and expanded */
+@media (min-width: 640px) {
+
+    #closebtn {
+        display: block;
+    }
+
+    #expandbtn {
+        display: none;
+    }
+
+    .sidebar-collapsed #leftsidebar {
+        width: 5rem;
+    }
+
+    .sidebar-collapsed .profile-container img {
+        transform: translateX(0%);
+        margin-top: 25px;
+    }
+
+    .sidebar-collapsed .sidebar-title,
+    .sidebar-collapsed .nav-text{
+        display: none;
+    }
+
+    #leftsidebar {
+        width: 15rem;
+    }
+}
+/* start leftsidebar */
+
+
