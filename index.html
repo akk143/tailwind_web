@@ -3,13 +3,22 @@
 <head>
     <title>Shopping Website</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="https://img.freepik.com/premium-vector/online-music-store-music-shop-with-vinyl-smartphone-headphone-music-vector-icon-concept-white-isolated_138676-480.jpg" type="image/png" sizes="16x16">
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        #carousel-slides {
+            display: flex;
+            transition: transform 1s ease-in-out; /* Smooth transition for slide change */
+        }
+
+    </style>
 </head>
 <body>
 
 
     <!-- Start Back to Top -->
-    <div class="d-flex justify-center items-center fixed bottom-0 right-3">                    <!-- can use position: fixed-top; in css -->
+    <div class="flex justify-center items-center fixed bottom-0 right-3">                    <!-- can use position: fixed-top; in css -->
         <a href="index.html" class="backtotops-btn"><i class="fas fa-angle-up bg-slate-300 text-[#000] p-2 rounded-lg"></i></a>
     </div>
     <!-- End Back to Top -->
@@ -182,8 +191,34 @@
                     <img src="https://static.wixstatic.com/media/ff6375_9ce5b994538144c79ba6898cbe9cbb5c~mv2.png/v1/fill/w_672,h_380,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(6).png" class="h-[270px] object-cover lg:h-[280px] md:h-[250px] sm:h-[200px]" alt="Accessory Image" />
                 </div>
             </div>
-    
+                
+            <!-- Slide 1 -->
+            <div class="w-full h-[250px] bg-orange-100 shadow flex relative flex-shrink-0" data-slide-index="3">
+                <div class="h-full w-2/3 flex flex-col justify-center items-start pl-8 ml-8 lg:w-2/3 md:w-3/4 sm:w-full md:pl-4 md:ml-4">
+
+                    <h1 class="text-3xl text-green-900 font-semibold leading-snug mb-2 lg:text-3xl md:text-2xl sm:text-xl sm:text-center sm:leading-relaxed">
+                        Grab Up To 50% Off ON <br class="hidden md:block" /> Selected Headphones
+                    </h1>
+                    
+                    <a href="javascript:void(0);" class="w-24 h-10 flex justify-center items-center text-sm text-white bg-green-900 rounded-full mt-4 hover:bg-green-800 lg:w-24 lg:h-10 md:w-20 md:h-8 sm:w-16 sm:h-8">
+                        Buy Now
+                    </a>
+                </div>
+
+                <div class="absolute bottom-0 right-0 lg:w-[280px] lg:h-[280px] md:w-[250px] md:h-[250px] sm:w-[200px] sm:h-[200px] hidden sm:block lg:mr-4">
+                    <img src="https://static.wixstatic.com/media/ff6375_9ce5b994538144c79ba6898cbe9cbb5c~mv2.png/v1/fill/w_672,h_380,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(6).png" class="h-[270px] object-cover lg:h-[280px] md:h-[250px] sm:h-[200px]" alt="Girl Image" />
+                </div>
+            </div>
+
         </section>
+
+        <!-- Carousel Controls -->
+        <button class="absolute left-1.5 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full" id="prev-slide">
+            &#10094;
+        </button>
+        <button class="absolute right-1.5 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full" id="next-slide">
+            &#10095;
+        </button>
     
         <!-- Indicators -->
         <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-3">
@@ -258,7 +293,7 @@
                 <div class="mb-4 shadow rounded-lg">
                     <div class="bg-gray-100 rounded-lg py-2 mb-4 relative mx-auto">
                         <div class="flex justify-center items-center">
-                            <img src="./img/earbuds.avif" class="w-[150px] h-[150px] object-cover mt-5 transition duration-200 hover:scale-110" alt="img1" />
+                            <img src="./img/WirelessEarbuds.webp" class="w-[150px] h-[150px] object-cover mt-5 transition duration-200 hover:scale-110" alt="img1" />
                             
                             <div class="w-8 h-8 bg-white rounded-full transform -translate-y-1/2 absolute top-6 right-2 flex items-center justify-center">
                                 <i class="far fa-heart"></i>
@@ -286,7 +321,7 @@
                             <i class="fas fa-star fa-sm text-yellow-400"></i>
                             <i class="fas fa-star-half-alt fa-sm text-yellow-400"></i>
                             
-                            <span class="text-sm">(121)</span>
+                            <span class="text-sm">(49)</span>
                         </div>
                 
                         <div class="my-3">
@@ -302,7 +337,7 @@
                 <div class="mb-4 shadow rounded-lg">
                     <div class="bg-gray-100 rounded-lg py-2 px-4 mb-4 relative mx-auto shadow">
                         <div class="flex justify-center items-center">
-                            <img src="https://powerdokr.com/cdn/shop/files/IMG_0763.png?v=1717327354" class="w-[150px] h-[150px] object-cover mt-5 transition duration-200 hover:scale-110" alt="img1" />
+                            <img src="./img/airpodmax.webp" class="w-[150px] h-[150px] object-cover mt-5 transition duration-200 hover:scale-110" alt="img1" />
                             <div class="w-8 h-8 bg-white rounded-full transform -translate-y-1/2 absolute top-6 right-2 flex items-center justify-center">
                                 <i class="far fa-heart"></i>
                             </div>
@@ -328,7 +363,7 @@
                             <i class="fas fa-star fa-sm text-yellow-400"></i>
                             <i class="far fa-star fa-sm"></i>
         
-                            <span class="text-sm">(121)</span>
+                            <span class="text-sm">(34)</span>
                         </div>
                  
                         <div class="my-3">
@@ -345,7 +380,7 @@
                 <div class="mb-4 shadow rounded-lg">
                     <div class="bg-gray-100 rounded-lg py-2 px-4 mb-4 relative mx-auto shadow">
                         <div class="flex justify-center items-center">
-                            <img src="./img/BoseQuietComfort.webp" class="w-[150px] h-[150px] object-cover mt-5 transition duration-200 hover:scale-110" alt="img1" />
+                            <img src="./img/BoseEarbuds.png" class="w-[150px] h-[150px] object-cover mt-5 transition duration-200 hover:scale-110" alt="img1" />
                             <div class="w-8 h-8 bg-white rounded-full transform -translate-y-1/2 absolute top-6 right-2 flex items-center justify-center">
                                 <i class="far fa-heart"></i>
                             </div>
@@ -371,7 +406,7 @@
                             <i class="fas fa-star fa-sm text-yellow-400"></i>
                             <i class="fas fa-star fa-sm text-yellow-400"></i>
         
-                            <span class="text-sm">(121)</span>
+                            <span class="text-sm">(57)</span>
                         </div>
         
                         <div class="my-3">
@@ -414,7 +449,7 @@
                             <i class="fas fa-star-half-alt fa-sm text-yellow-400"></i>
                             <i class="far fa-star fa-sm"></i>
         
-                            <span class="text-sm">(121)</span>
+                            <span class="text-sm">(135)</span>
                         </div>
                 
                         <div class="my-3">
@@ -431,7 +466,7 @@
                 <div class="mb-4 shadow rounded-lg">
                     <div class="bg-gray-100 rounded-lg py-2 mb-4 relative mx-auto">
                         <div class="flex justify-center items-center">
-                            <img src="./img/earbuds.avif" class="w-[150px] h-[150px] object-cover mt-5 transition duration-200 hover:scale-110" alt="img1" />
+                            <img src="./img/WirelessEarbuds.webp" class="w-[150px] h-[150px] object-cover mt-5 transition duration-200 hover:scale-110" alt="img1" />
                             
                             <div class="w-8 h-8 bg-white rounded-full transform -translate-y-1/2 absolute top-6 right-2 flex items-center justify-center">
                                 <i class="far fa-heart"></i>
@@ -459,7 +494,7 @@
                             <i class="fas fa-star fa-sm text-yellow-400"></i>
                             <i class="fas fa-star-half-alt fa-sm text-yellow-400"></i>
                             
-                            <span class="text-sm">(121)</span>
+                            <span class="text-sm">(96)</span>
                         </div>
                 
                         <div class="my-3">
@@ -475,7 +510,7 @@
                 <div class="mb-4 shadow rounded-lg">
                     <div class="bg-gray-100 rounded-lg py-2 px-4 mb-4 relative mx-auto shadow">
                         <div class="flex justify-center items-center">
-                            <img src="https://powerdokr.com/cdn/shop/files/IMG_0763.png?v=1717327354" class="w-[150px] h-[150px] object-cover mt-5 transition duration-200 hover:scale-110" alt="img1" />
+                            <img src="./img/airpodmax.webp" class="w-[150px] h-[150px] object-cover mt-5 transition duration-200 hover:scale-110" alt="img1" />
                             <div class="w-8 h-8 bg-white rounded-full transform -translate-y-1/2 absolute top-6 right-2 flex items-center justify-center">
                                 <i class="far fa-heart"></i>
                             </div>
@@ -501,7 +536,7 @@
                             <i class="fas fa-star fa-sm text-yellow-400"></i>
                             <i class="far fa-star fa-sm"></i>
         
-                            <span class="text-sm">(121)</span>
+                            <span class="text-sm">(208)</span>
                         </div>
                  
                         <div class="my-3">
@@ -518,7 +553,7 @@
                 <div class="mb-4 shadow rounded-lg">
                     <div class="bg-gray-100 rounded-lg py-2 px-4 mb-4 relative mx-auto shadow">
                         <div class="flex justify-center items-center">
-                            <img src="./img/BoseQuietComfort.webp" class="w-[150px] h-[150px] object-cover mt-5 transition duration-200 hover:scale-110" alt="img1" />
+                            <img src="./img/BoseEarbuds.png" class="w-[150px] h-[150px] object-cover mt-5 transition duration-200 hover:scale-110" alt="img1" />
                             <div class="w-8 h-8 bg-white rounded-full transform -translate-y-1/2 absolute top-6 right-2 flex items-center justify-center">
                                 <i class="far fa-heart"></i>
                             </div>
@@ -544,7 +579,7 @@
                             <i class="fas fa-star fa-sm text-yellow-400"></i>
                             <i class="fas fa-star fa-sm text-yellow-400"></i>
         
-                            <span class="text-sm">(121)</span>
+                            <span class="text-sm">(88)</span>
                         </div>
         
                         <div class="my-3">
@@ -561,7 +596,7 @@
                 <div class="mb-4 shadow rounded-lg">
                     <div class="bg-gray-100 rounded-lg py-2 px-4 mb-4 relative mx-auto shadow">
                         <div class="flex justify-center items-center">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRkzhaE-NPDspZC7XwjYSKgyajyF-FACGbyC9Odd1KRyKC99mslaF0oSXLuDBvERI0VCI&usqp=CAU" class="w-[150px] h-[150px] object-cover mt-5 transition duration-200 hover:scale-110" alt="img1" />
+                            <img src="./img/monstermnflex.webp" class="w-[150px] h-[150px] object-cover mt-5 transition duration-200 hover:scale-110" alt="img1" />
                             <div class="w-8 h-8 bg-white rounded-full transform -translate-y-1/2 absolute top-6 right-2 flex items-center justify-center">
                                 <i class="far fa-heart"></i>
                             </div>
@@ -587,7 +622,7 @@
                             <i class="fas fa-star-half-alt fa-sm text-yellow-400"></i>
                             <i class="far fa-star fa-sm"></i>
         
-                            <span class="text-sm">(121)</span>
+                            <span class="text-sm">(100)</span>
                         </div>
                 
                         <div class="my-3">
@@ -644,6 +679,7 @@
             <div>
                 <h4 class="text-lg font-bold mb-4">Subscribe to Our Newsletter</h4>
                 <form class="flex flex-col space-y-2">
+                    <input type="text" placeholder="Your Fulname" class="w-full text-gray-800 rounded px-4 py-2" required>
                     <input type="email" placeholder="Your email" class="w-full text-gray-800 rounded px-4 py-2" required>
                     <button type="submit" class="text-white font-semibold py-2 rounded bg-blue-600 hover:bg-blue-500 transition duration-200 ease-in-out">Subscribe</button>
                 </form>

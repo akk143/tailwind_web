@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slider {
+            width: 100%;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .slider img {
+            width: 120px;
+            display: none;
+        }
+        img.displaySlide {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider">
+        <div class="slides">
+            <img src="./img/airpodmax.webp" alt="image1" class="slide">
+            <img src="./img/BoseEarbuds.png" alt="image2" class="slide">
+            <img src="./img/monstermnflex.webp" alt="image3" class="slide">
+        </div>
+
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <script>
+
+        const slides = document.querySelectorAll('.slides img');
+        let slideidx = 0;
+        let intervalId = null;
+
+        document.addEventListener("DOMContentLoaded", initalizeSlider);
+
+        function initalizeSlider() {
+            if (slides.length > 0) {
+                slides[slideidx].classList.add('displaySlide');
+                intervalId = setInterval(nextSlide, 5000); // Auto slide every 5 seconds
+            }
+        }
+
+        function showSlide(index) {
+            
+            // Handle looping behavior
+            if (index >= slides.length) {
+                slideidx = 0;
+            } else if (index < 0) {
+                slideidx = slides.length - 1;
+            }
+
+            slides.forEach(slide => {
+                slide.classList.remove('displaySlide');
+            });
+            slides[slideidx].classList.add('displaySlide');
+        }
+
+        function prevSlide() {
+            clearInterval(intervalId)
+            slideidx--;
+            showSlide(slideidx); // Display the previous slide
+        }
+
+        function nextSlide() {
+            slideidx++;
+            showSlide(slideidx); // Display the next slide
+        }
+
+    </script>
+    
+</body>
+</html>
