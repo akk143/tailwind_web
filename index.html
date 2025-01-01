@@ -3,13 +3,20 @@
 <head>
     <title>Shopping Website</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="https://img.freepik.com/premium-vector/online-music-store-music-shop-with-vinyl-smartphone-headphone-music-vector-icon-concept-white-isolated_138676-480.jpg" type="image/png" sizes="16x16">
+    <link rel="icon" href="./img/logo.avif" type="image/png" sizes="16x16">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        #carousel-slides {
+
+        #carousel-slides{
             display: flex;
-            transition: transform 1s ease-in-out; /* Smooth transition for slide change */
+            transition: transform 1s ease-in-out;
+        }
+        .sliders {
+            display: none;
+        }
+        .sliders.displaySlide{
+            display: flex; 
         }
 
     </style>
@@ -18,14 +25,14 @@
 
 
     <!-- Start Back to Top -->
-    <div class="flex justify-center items-center fixed bottom-0 right-3">                    <!-- can use position: fixed-top; in css -->
-        <a href="index.html" class="backtotops-btn"><i class="fas fa-angle-up bg-slate-300 text-[#000] p-2 rounded-lg"></i></a>
+    <div class="flex justify-center items-center fixed bottom-0 right-3">                    
+        <a href="#" class="backtotops-btn"><i class="fas fa-angle-up bg-slate-300 text-[#000] p-2 rounded-lg"></i></a>
     </div>
     <!-- End Back to Top -->
 
     <!-- start top -->
     <section class="max-w-screen mx-auto md:block hidden">
-        <div class="w-full bg-green-900 text-white font-medium flex flex-col md:flex-row items-center justify-between px-4 py-2 md:py-0">
+        <div class="w-full h-7 bg-green-900 text-white font-medium flex flex-col md:flex-row items-center justify-between px-4 py-2 md:py-0">
             
             <!-- Phone Number Section -->
             <div class="text-xs mb-2 md:mb-0 flex items-center">
@@ -61,18 +68,18 @@
     <!-- start header section -->
     <header class="container mx-auto flex justify-between items-center py-4 px-6 relative">
         <!-- Start Navbar -->
-        <nav class="flex items-center justify-between w-full">
-
-            <div class="flex items-center justify-between w-full md:w-auto">
+        <nav class="w-full flex flex-wrap items-center justify-between md:flex-nowrap">
+    
+            <div class="w-full flex items-center justify-between md:w-auto">
                 <!-- Logo -->
                 <a href="#" class="flex items-center">
-                    <img src="https://img.freepik.com/premium-vector/online-music-store-music-shop-with-vinyl-smartphone-headphone-music-vector-icon-concept-white-isolated_138676-480.jpg" class="w-12 h-12 mr-2" alt="ChicBazaar Logo" />
+                    <img src="./img/logo.avif" class="w-12 h-12 mr-2" alt="ChicBazaar Logo" />
                     <h3 class="text-xl font-semibold text-sky-600">ChicBazaar</h3>
                 </a>
-    
+        
                 <!-- Mobile Search and Menu Toggle -->
                 <div class="flex items-center space-x-4 md:hidden">
-
+    
                     <!-- Mobile Search Box -->
                     <div class="relative">
                         <input type="text" class="w-40 text-sm bg-gray-100 rounded-full pl-4 pr-10 py-2 focus:outline-none" placeholder="Search Product" autocomplete="off" />
@@ -80,15 +87,15 @@
                             <i class="fas fa-search"></i>
                         </span>
                     </div>
-
+    
                     <!-- Toggle Menu Button -->
                     <span class="text-2xl cursor-pointer togglemenu" onclick="this.classList.toggle('togglemenus'); document.querySelector('nav ul').classList.toggle('opacity-100'); document.querySelector('nav ul').classList.toggle('hidden');">
                         <i class="fas fa-bars"></i>
                     </span>
-                    
+                        
                 </div>
             </div>
-    
+        
             <!-- Navigation Links -->
             <ul class="hidden opacity-0 absolute left-0 top-full w-full bg-white md:static md:flex md:opacity-100 md:w-auto items-center transition-all duration-300 z-10 md:space-x-6 p-4 md:p-0 space-y-4 md:space-y-0">
                 <li class="relative group">
@@ -106,13 +113,15 @@
                 <li><a href="javascript:void(0);" class="text-base font-medium hover:text-violet-700 transition-colors">Deals</a></li>
                 <li><a href="javascript:void(0);" class="text-base font-medium hover:text-violet-700 transition-colors">What's New</a></li>
                 <li><a href="javascript:void(0);" class="text-base font-medium hover:text-violet-700 transition-colors">Delivery</a></li>
+                <li class="md:hidden"><a href="javascript:void(0);" class="text-base font-medium hover:text-violet-700 transition-colors">Cart</a></li>
+                <li class="md:hidden"><a href="javascript:void(0);" class="text-base font-medium hover:text-violet-700 transition-colors">Login</a></li>
             </ul>
         </nav>
         <!-- End Navbar -->
     
         <!-- Search Box for Desktop -->
-        <div class="relative hidden md:block ml-6 mr-8">
-            <input type="text" class="w-[200px] text-sm bg-gray-100 rounded-full pl-4 pr-10 py-2 focus:outline-none" placeholder="Search Product" autocomplete="off" />
+        <div class="relative hidden md:block ml-6 mr-8 flex-grow">
+            <input type="text" class="w-full max-w-xs text-sm bg-gray-100 rounded-full pl-4 pr-10 py-2 focus:outline-none" placeholder="Search Product" autocomplete="off" />
             <span class="absolute inset-y-0 right-3 flex items-center text-gray-500">
                 <i class="fas fa-search"></i>
             </span>
@@ -120,103 +129,99 @@
     
         <!-- Account & Cart for Desktop -->
         <div class="hidden md:flex items-center space-x-6">
-
+    
             <a href="javascript:void(0);" class="bg-stone-50 px-3 py-1 rounded-lg flex items-center space-x-2">
                 <i class="fas fa-user"></i><span>Login</span>
             </a>
-
+    
             <a href="javascript:void(0);" class="bg-stone-50 px-3 py-1 rounded-lg flex items-center space-x-2">
                 <i class="fas fa-shopping-cart"></i><span>Cart</span>
             </a>
-
+    
         </div>
-
-    </header>      
+    
+    </header>       
     <!-- end header section -->
 
         
     <!-- hero section -->
     <div class="container mx-auto overflow-hidden relative">
+
         <!-- Carousel Wrapper -->
         <section class="flex transition-transform duration-700 ease-in-out" id="carousel-slides">
             
             <!-- Slide 1 -->
-            <div class="w-full h-[250px] bg-orange-100 shadow flex relative flex-shrink-0" data-slide-index="0">
-                <div class="h-full w-2/3 flex flex-col justify-center items-start pl-8 ml-8 lg:w-2/3 md:w-3/4 sm:w-full md:pl-4 md:ml-4">
+            <div class="w-full h-[250px] bg-orange-100 shadow flex relative flex-shrink-0 sliders" data-slide-index="0">
 
-                    <h1 class="text-3xl text-green-900 font-semibold leading-snug mb-2 lg:text-3xl md:text-2xl sm:text-xl sm:text-center sm:leading-relaxed">
-                        Grab Up To 50% Off ON <br class="hidden md:block" /> Selected Headphones
-                    </h1>
+                <div class="h-full w-full flex items-center justify-between px-8 md:px-4 sm:px-2 relative">
                     
-                    <a href="javascript:void(0);" class="w-24 h-10 flex justify-center items-center text-sm text-white bg-green-900 rounded-full mt-4 hover:bg-green-800 lg:w-24 lg:h-10 md:w-20 md:h-8 sm:w-16 sm:h-8">
-                        Buy Now
-                    </a>
-                </div>
-
-                <div class="absolute bottom-0 right-0 lg:w-[280px] lg:h-[280px] md:w-[250px] md:h-[250px] sm:w-[200px] sm:h-[200px] hidden sm:block lg:mr-4">
-                    <img src="https://static.wixstatic.com/media/ff6375_9ce5b994538144c79ba6898cbe9cbb5c~mv2.png/v1/fill/w_672,h_380,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(6).png" class="h-[270px] object-cover lg:h-[280px] md:h-[250px] sm:h-[200px]" alt="Girl Image" />
+                    <div class="w-full md:w-2/4 flex flex-col justify-center items-center text-center">
+                        <h1 class="text-3xl text-green-900 font-semibold leading-snug lg:text-3xl md:text-2xl sm:text-xl mb-4">
+                            Grab Up To 50% Off ON <br class="hidden md:block" /> Selected Headphones
+                        </h1>
+            
+                        <a href="javascript:void(0);" class="w-32 h-10 text-sm text-white bg-green-900 rounded-full flex justify-center items-center mt-4 hover:bg-green-800 lg:w-32 lg:h-10 md:w-28 md:h-10 sm:w-24 sm:h-8">
+                            Buy Now
+                        </a>
+                    </div>
+            
+                    <div class="absolute bottom-0 right-0 lg:w-[280px] lg:h-[260px] md:w-[260px] md:h-[230px] sm:w-0 sm:h-0 hidden sm:block lg:mr-4">
+                        <img src="https://static.wixstatic.com/media/ff6375_9ce5b994538144c79ba6898cbe9cbb5c~mv2.png/v1/fill/w_672,h_380,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(6).png" class="h-[270px] object-cover lg:h-[280px] md:h-[250px] sm:h-[200px]" alt="Headphone Image" />
+                    </div>
                 </div>
             </div>
     
             <!-- Slide 2 -->
-            <div class="w-full h-[250px] bg-blue-100 shadow flex relative flex-shrink-0" data-slide-index="1">
-                <div class="h-full w-2/3 flex flex-col justify-center items-start pl-8 ml-8 lg:w-2/3 md:w-3/4 sm:w-full md:pl-4 md:ml-4">
-                    <h1 class="text-3xl text-blue-900 font-semibold leading-snug mb-2 lg:text-3xl md:text-2xl sm:text-xl sm:text-center sm:leading-relaxed">
-                        New Arrivals - 30% Off on <br class="hidden md:block"> Latest Gadgets
-                    </h1>
-                    
-                    <a href="javascript:void(0);" class="w-24 h-10 flex justify-center items-center text-sm text-white bg-blue-900 rounded-full mt-4 hover:bg-blue-800 lg:w-24 lg:h-10 md:w-20 md:h-8 sm:w-16 sm:h-8">
-                        Discover
-                    </a>
+            <div class="w-full h-[250px] bg-blue-100 shadow flex relative flex-shrink-0 sliders" data-slide-index="1">
+
+                <div class="h-full w-full flex items-center justify-between px-8 md:px-4 sm:px-2 relative">
+
+                    <div class="w-full md:w-2/4 flex flex-col justify-center items-center text-center">
+                        <h1 class="text-3xl text-blue-900 font-semibold leading-snug mb-2 lg:text-3xl md:text-2xl sm:text-xl sm:text-center sm:leading-relaxed">
+                            New Arrivals - 30% Off on <br class="hidden md:block"> Latest Gadgets
+                        </h1>
+                        
+                        <a href="javascript:void(0);" class="w-24 h-10 flex justify-center items-center text-sm text-white bg-blue-900 rounded-full mt-4 hover:bg-blue-800 lg:w-24 lg:h-10 md:w-20 md:h-8 sm:w-16 sm:h-8">
+                            Discover
+                        </a>
+                    </div>
+
                 </div>
 
-                <div class="absolute bottom-0 right-0 lg:w-[280px] lg:h-[280px] md:w-[250px] md:h-[250px] sm:w-[200px] sm:h-[200px] hidden sm:block lg:mr-4">
+                <div class="absolute bottom-0 right-0 lg:w-[280px] lg:h-[260px] md:w-[250px] md:h-[230px] sm:w-0 sm:h-0 hidden sm:block lg:mr-4">
                     <img src="https://static.wixstatic.com/media/ff6375_9ce5b994538144c79ba6898cbe9cbb5c~mv2.png/v1/fill/w_672,h_380,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(6).png" class="h-[270px] object-cover lg:h-[280px] md:h-[250px] sm:h-[200px]" alt="Gadget Image" />
                 </div>
             </div>
     
             <!-- Slide 3 -->
-            <div class="w-full h-[250px] bg-purple-100 shadow flex relative flex-shrink-0" data-slide-index="2">
-                <div class="h-full w-2/3 flex flex-col justify-center items-start pl-8 ml-8 lg:w-2/3 md:w-3/4 sm:w-full md:pl-4 md:ml-4">
-                    <h1 class="text-3xl text-indigo-900 font-semibold leading-snug mb-2 lg:text-3xl md:text-2xl sm:text-xl sm:text-center sm:leading-relaxed">
-                        Limited Time Offer- <br class="hidden md:block" /> 40% Off on Accessories
-                    </h1>
+            <div class="w-full h-[250px] bg-purple-100 shadow flex relative flex-shrink-0 sliders" data-slide-index="2">
 
-                    <a href="javascript:void(0);" class="w-24 h-10 flex justify-center items-center text-sm text-white bg-purple-900 rounded-full mt-4 hover:bg-purple-800 lg:w-24 lg:h-10 md:w-20 md:h-8 sm:w-16 sm:h-8">
-                        Explore
-                    </a>
+                <div class="h-full w-full flex items-center justify-between px-8 md:px-4 sm:px-2 relative">
+
+                    <div class="w-full md:w-2/4 flex flex-col justify-center items-center text-center">
+                        <h1 class="text-3xl text-indigo-900 font-semibold leading-snug mb-2 lg:text-3xl md:text-2xl sm:text-xl sm:text-center sm:leading-relaxed">
+                            Limited Time Offer- <br class="hidden md:block" /> 40% Off on Accessories
+                        </h1>
+
+                        <a href="javascript:void(0);" class="w-24 h-10 flex justify-center items-center text-sm text-white bg-purple-900 rounded-full mt-4 hover:bg-purple-800 lg:w-24 lg:h-10 md:w-20 md:h-8 sm:w-16 sm:h-8">
+                            Explore
+                        </a>
+                    </div>
+
                 </div>
 
-                <div class="absolute bottom-0 right-0 lg:w-[280px] lg:h-[280px] md:w-[250px] md:h-[250px] sm:w-[200px] sm:h-[200px] hidden sm:block lg:mr-4">
+                <div class="absolute bottom-0 right-0 lg:w-[280px] lg:h-[260px] md:w-[250px] md:h-[230px] sm:w-0 sm:h-0 hidden sm:block lg:mr-4">
                     <img src="https://static.wixstatic.com/media/ff6375_9ce5b994538144c79ba6898cbe9cbb5c~mv2.png/v1/fill/w_672,h_380,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(6).png" class="h-[270px] object-cover lg:h-[280px] md:h-[250px] sm:h-[200px]" alt="Accessory Image" />
-                </div>
-            </div>
-                
-            <!-- Slide 1 -->
-            <div class="w-full h-[250px] bg-orange-100 shadow flex relative flex-shrink-0" data-slide-index="3">
-                <div class="h-full w-2/3 flex flex-col justify-center items-start pl-8 ml-8 lg:w-2/3 md:w-3/4 sm:w-full md:pl-4 md:ml-4">
-
-                    <h1 class="text-3xl text-green-900 font-semibold leading-snug mb-2 lg:text-3xl md:text-2xl sm:text-xl sm:text-center sm:leading-relaxed">
-                        Grab Up To 50% Off ON <br class="hidden md:block" /> Selected Headphones
-                    </h1>
-                    
-                    <a href="javascript:void(0);" class="w-24 h-10 flex justify-center items-center text-sm text-white bg-green-900 rounded-full mt-4 hover:bg-green-800 lg:w-24 lg:h-10 md:w-20 md:h-8 sm:w-16 sm:h-8">
-                        Buy Now
-                    </a>
-                </div>
-
-                <div class="absolute bottom-0 right-0 lg:w-[280px] lg:h-[280px] md:w-[250px] md:h-[250px] sm:w-[200px] sm:h-[200px] hidden sm:block lg:mr-4">
-                    <img src="https://static.wixstatic.com/media/ff6375_9ce5b994538144c79ba6898cbe9cbb5c~mv2.png/v1/fill/w_672,h_380,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(6).png" class="h-[270px] object-cover lg:h-[280px] md:h-[250px] sm:h-[200px]" alt="Girl Image" />
                 </div>
             </div>
 
         </section>
 
         <!-- Carousel Controls -->
-        <button class="absolute left-1.5 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full" id="prev-slide">
+        <button class="text-white bg-black bg-opacity-50 rounded-full absolute left-1.5 top-1/2 transform -translate-y-1/2 p-2" id="prev-slide">
             &#10094;
         </button>
-        <button class="absolute right-1.5 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full" id="next-slide">
+        <button class="text-white bg-black bg-opacity-50 rounded-full absolute right-1.5 top-1/2 transform -translate-y-1/2 p-2" id="next-slide">
             &#10095;
         </button>
     
@@ -226,50 +231,64 @@
             <button class="w-2 h-2 bg-gray-400 rounded-full" data-slide="1"></button>
             <button class="w-2 h-2 bg-gray-400 rounded-full" data-slide="2"></button>
         </div>
+
     </div>
     <!-- hero section -->
 
 
     <!-- start sort by -->
     <div class="container mx-auto">
-        <div class="mt-8 py-4"> <!-- Added padding on the top and bottom -->
-            <div class="flex items-center justify-center flex-col md:flex-row md:justify-between space-y-4 md:space-y-0">
+        <div class="mt-8 py-4 px-4 md:px-0">
+            <div class="flex flex-col md:flex-row md:justify-between space-y-4 md:space-y-0">
                 
-                <!-- Left group centered on small screens -->
-                <ul class="grid grid-cols-3 gap-3 justify-center md:flex md:justify-start">
+                <ul class="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:justify-start md:space-x-6 md:space-y-0">
                     <li class="mb-2">
-                        <a href="javascript:void(0);" class="bg-gray-100 text-sm rounded-full px-2.5 py-2 font-medium">Headphone Type<i class="fas fa-angle-down ml-2"></i></a>
+                        <a href="javascript:void(0);" class="w-full bg-gray-100 text-sm font-medium flex items-center justify-between rounded-full px-3 py-2">
+                            Headphone Type <i class="fas fa-angle-down ml-2"></i>
+                        </a>
                     </li>
-
+    
                     <li class="mb-2">
-                        <a href="javascript:void(0);" class="bg-gray-100 text-sm rounded-full px-2.5 py-2 font-medium">Price<i class="fas fa-angle-down ml-2"></i></a>
+                        <a href="javascript:void(0);" class="w-full bg-gray-100 text-sm font-medium flex items-center justify-between rounded-full px-3 py-2">
+                            Price <i class="fas fa-angle-down ml-2"></i>
+                        </a>
                     </li>
-
+    
                     <li class="mb-2">
-                        <a href="javascript:void(0);" class="bg-gray-100 text-sm rounded-full px-2.5 py-2 font-medium">Review<i class="fas fa-angle-down ml-2"></i></a>
+                        <a href="javascript:void(0);" class="w-full bg-gray-100 text-sm font-medium flex items-center justify-between rounded-full px-3 py-2">
+                            Review <i class="fas fa-angle-down ml-2"></i>
+                        </a>
                     </li>
-
+    
                     <li class="mb-2">
-                        <a href="javascript:void(0);" class="bg-gray-100 text-sm rounded-full px-2.5 py-2 font-medium">Color<i class="fas fa-angle-down ml-2"></i></a>
+                        <a href="javascript:void(0);" class="w-full bg-gray-100 text-sm font-medium flex items-center justify-between rounded-full px-3 py-2">
+                            Color <i class="fas fa-angle-down ml-2"></i>
+                        </a>
                     </li>
-
+    
                     <li class="mb-2">
-                        <a href="javascript:void(0);" class="bg-gray-100 text-sm rounded-full px-2.5 py-2 font-medium">Material<i class="fas fa-angle-down ml-2"></i></a>
+                        <a href="javascript:void(0);" class="w-full bg-gray-100 text-sm font-medium flex items-center justify-between rounded-full px-3 py-2">
+                            Material <i class="fas fa-angle-down ml-2"></i>
+                        </a>
                     </li>
-
+    
                     <li class="mb-2">
-                        <a href="javascript:void(0);" class="bg-gray-100 text-sm rounded-full px-2.5 py-2 font-medium">Offer<i class="fas fa-angle-down ml-2"></i></a>
+                        <a href="javascript:void(0);" class="w-full bg-gray-100 text-sm font-medium flex items-center justify-between rounded-full px-3 py-2">
+                            Offer <i class="fas fa-angle-down ml-2"></i>
+                        </a>
                     </li>
-
+    
                     <li class="mb-2">
-                        <a href="javascript:void(0);" class="bg-gray-100 text-sm rounded-full px-2.5 py-2 font-medium">All Filter<i class="fas fa-sliders-h ml-2"></i></a>
+                        <a href="javascript:void(0);" class="w-full bg-gray-100 text-sm font-medium flex items-center justify-between rounded-full px-3 py-2">
+                            All Filter <i class="fas fa-sliders-h ml-2"></i>
+                        </a>
                     </li>
                 </ul>
                 
                 <!-- Right group with aligned "Sort By" -->
-                <div class="flex items-center justify-center md:justify-end mt-4 md:mt-0">
+                <div class="flex items-center justify-start md:justify-end mt-4 md:mt-0 w-full md:w-auto">
                     <span class="text-sm font-medium mr-2">Sort By:</span>
-                    <select class="border rounded-md text-sm py-2 px-2.5">
+                    <select class=" w-auto text-sm border rounded-md px-3 py-2">
                         <option value="" selected>Relevance</option>
                         <option value="">Newest</option>
                         <option value="">Price low to high</option>
@@ -693,7 +712,6 @@
         </div>
     </footer>
     <!-- end footer section -->
-
 
     <script src="./app.js" type="text/javascript"></script>
        
